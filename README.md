@@ -1,4 +1,4 @@
-# renv-test README
+# Activity instructions
 
  - Uninstall the `ggplot2` package.
  - Fork this repo (like you did in the *Fork this!* activity) to create the Project on your own laptop.
