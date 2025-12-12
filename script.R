@@ -1,12 +1,14 @@
 library(ggplot2)
-library(ggrepel)
+library(ggthemes)
 
-# Create a new columns with the label only for row 2,3 and 14
-mtcars$car = ""
-idx_to_label = c(2, 20, 14)
-mtcars$car[idx_to_label] = rownames(mtcars)[idx_to_label]
+p <- ggplot(penguins, aes(x = flipper_len, y = body_mass, color = species, shape = species)) +
+  geom_point(size = 2) +
+  labs(
+    title = "Flipper Length by Body Mass, by Species",
+    x = "Flipper Length",
+    y = "Body Mass",
+    caption = "Data source: penguins dataset"
+  )
 
-# Display the result
-ggplot(mtcars, aes(wt, mpg, label = car)) +
-  geom_text_repel() +
-  geom_point(color = ifelse(mtcars$car == "", "grey50", "red"))
+p + theme_fivethirtyeight() + scale_color_fivethirtyeight()
+
